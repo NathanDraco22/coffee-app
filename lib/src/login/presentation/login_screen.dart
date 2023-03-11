@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -16,20 +15,70 @@ class LoginScreen extends StatelessWidget {
             children: [
               const _BackGround(),
               Positioned(
-                child: BlurBox(
-                  child: Column(
-                    children: [
-                      Text("HOLA MUNDO"),
+                child: Column(
+                  children: [
+                    BlurBox(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text("Wellcome To Coffee App :)", style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Theme.of(context).colorScheme.secondary
+                            ),),
+                            const TextField(),
+                            const TextField(),
+                            FilledButton(
+                              style: FilledButton.styleFrom(
+                                elevation: 0.0,
+                                padding: const EdgeInsets.symmetric(horizontal:40 )
+                              ),
+                              onPressed: () {}, 
+                              child: const Text("Login")
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
 
-                      TextField()
-                    ],
-                  ),
+                    const SizedBox(height: 20,),
+                    
+                    const _CreateAccountWidget()
+
+
+
+                  ],
                 )
               )
             ],
           ),
         ],
       )
+    );
+  }
+}
+
+class _CreateAccountWidget extends StatelessWidget {
+  const _CreateAccountWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Text("Don't an account yet?"),
+        GestureDetector(
+          onTap: () => print("Tapped"),
+          child: Text(
+            "Create one HERE !", 
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).colorScheme.primary
+            ),
+          ),
+        )
+      ],
     );
   }
 }
@@ -55,9 +104,10 @@ class BlurBox extends StatelessWidget {
           height: media.height * 0.5,
           decoration: BoxDecoration(
            border: Border.all(
+            color: Theme.of(context).colorScheme.secondary,
             width: 2
            ),
-           color: const Color(0Xff1a1f1b).withOpacity(0.6),
+           color: const Color(0Xff1a1f1b).withOpacity(0.7),
            borderRadius: BorderRadius.circular(20)
           ),
           child: child,
