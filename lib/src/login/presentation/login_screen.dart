@@ -16,7 +16,15 @@ class LoginScreen extends StatelessWidget {
             children: [
               const _BackGround(),
               Positioned(
-                child: BlurBox()
+                child: BlurBox(
+                  child: Column(
+                    children: [
+                      Text("HOLA MUNDO"),
+
+                      TextField()
+                    ],
+                  ),
+                )
               )
             ],
           ),
@@ -29,7 +37,11 @@ class LoginScreen extends StatelessWidget {
 class BlurBox extends StatelessWidget {
   const BlurBox({
     super.key,
+    this.child
   });
+  
+  final Widget? child;
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +55,12 @@ class BlurBox extends StatelessWidget {
           height: media.height * 0.5,
           decoration: BoxDecoration(
            border: Border.all(
-            color: const Color(0xFFbb965f),
             width: 2
            ),
-           color: const Color(0Xff1a1f1b).withOpacity(0.7),
+           color: const Color(0Xff1a1f1b).withOpacity(0.6),
            borderRadius: BorderRadius.circular(20)
           ),
+          child: child,
         ),
       ),
     );
