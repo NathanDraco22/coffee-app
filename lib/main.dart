@@ -8,6 +8,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(const AssetImage("assets/images/coffee-intro2.jpg"), context);
+    precacheImage(const AssetImage("assets/images/coffee-intro.jpg"), context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark( useMaterial3: true).copyWith(
