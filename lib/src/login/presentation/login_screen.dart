@@ -3,7 +3,8 @@ import 'package:loading_button/loading_button.dart';
 
 import '../widgets/background_coffee_image.dart';
 import '../widgets/blur_box.dart';
-import 'login_page_view.dart';
+import 'login_mediator.dart';
+
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -83,7 +84,7 @@ class _CreateAccountWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final PageController pageController = LoginMediator.of(context).pageController;
+    final pageController = LoginMediator.of(context).pageController;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
