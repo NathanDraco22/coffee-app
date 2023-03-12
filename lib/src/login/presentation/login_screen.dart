@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:loading_button/loading_button.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -7,54 +8,67 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1a1f1b),
       body: Column(
         children:  [
           Stack(
             alignment: Alignment.center,
-            children: [
-              const _BackGround(),
+            children: const[
+              _BackgroundLogin(),
               Positioned(
-                child: Column(
-                  children: [
-                    BlurBox(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text("Wellcome To Coffee App :)", style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).colorScheme.secondary
-                            ),),
-                            const TextField(),
-                            const TextField(),
-                            FilledButton(
-                              style: FilledButton.styleFrom(
-                                elevation: 0.0,
-                                padding: const EdgeInsets.symmetric(horizontal:40 )
-                              ),
-                              onPressed: () {}, 
-                              child: const Text("Login")
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 20,),
-                    
-                    const _CreateAccountWidget()
-
-
-
-                  ],
-                )
+                child: _LoginForm()
               )
             ],
           ),
         ],
       )
+    );
+  }
+}
+
+class _LoginForm extends StatelessWidget {
+  const _LoginForm();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        BlurBox(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "Wellcome To Coffee App :)", 
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.secondary
+                  ),
+                ),
+                const TextField(),
+                const TextField(),
+                LinearLoadingButton(
+                  onPressed: (setLoading) async{
+                    setLoading(true);
+                    await Future.delayed(const Duration(seconds: 2));
+                    setLoading(false);          
+                  },
+                  child: const Text(
+                    "Login", 
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+
+        const SizedBox(height: 20,),
+        const _CreateAccountWidget()
+
+      ],
     );
   }
 }
@@ -91,7 +105,6 @@ class BlurBox extends StatelessWidget {
   
   final Widget? child;
 
-
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size;
@@ -117,8 +130,8 @@ class BlurBox extends StatelessWidget {
   }
 }
 
-class _BackGround extends StatelessWidget {
-  const _BackGround();
+class _BackgroundLogin extends StatelessWidget {
+  const _BackgroundLogin();
 
   @override
   Widget build(BuildContext context) {
