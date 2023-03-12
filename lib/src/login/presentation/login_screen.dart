@@ -1,10 +1,9 @@
-import 'package:app_coffee/src/login/presentation/register_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_button/loading_button.dart';
 
 import '../widgets/background_coffee_image.dart';
 import '../widgets/blur_box.dart';
+import 'login_page_view.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -84,15 +83,16 @@ class _CreateAccountWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final PageController pageController = LoginMediator.of(context).pageController;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         const Text("Don't an account yet?"),
         GestureDetector(
-          onTap: () => Navigator.push(
-            context, 
-            CupertinoPageRoute(builder: (context) => const RegisterScreen(),)
-          ),
+          onTap: () => 
+            pageController.animateToPage(1, 
+              duration: const Duration(milliseconds: 500), 
+              curve: Curves.linearToEaseOut),
           child: Text(
             "Create one HERE !", 
             style: TextStyle(
