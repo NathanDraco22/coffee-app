@@ -3,6 +3,7 @@ import 'package:loading_button/loading_button.dart';
 
 import '../widgets/background_coffee_image.dart';
 import '../widgets/blur_box.dart';
+import '../widgets/phone_number_field.dart';
 import 'login_mediator.dart';
 
 
@@ -51,7 +52,7 @@ class _LoginForm extends StatelessWidget {
                     color: Theme.of(context).colorScheme.secondary
                   ),
                 ),
-                const TextField(),
+                const PhoneNumberField(),
                 const TextField(),
                 LinearLoadingButton(
                   onPressed: (setLoading) async{
@@ -78,6 +79,8 @@ class _LoginForm extends StatelessWidget {
     );
   }
 }
+
+
 
 class _CreateAccountWidget extends StatelessWidget {
   const _CreateAccountWidget();
