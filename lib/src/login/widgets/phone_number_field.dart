@@ -21,6 +21,7 @@ class NicNumberFormatter extends TextInputFormatter{
   @override
   TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
 
+    if(RegExp(r"[a-zA-Z]").hasMatch(newValue.text))return oldValue;
     if(oldValue.text.length > newValue.text.length) return newValue;
     final regex = RegExp(r"[0-9]{4}-");
     if (regex.hasMatch(newValue.text)){
