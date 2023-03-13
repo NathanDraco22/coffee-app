@@ -9,6 +9,18 @@ class PhoneNumberField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: const TextStyle(fontSize: 18),
+      textAlignVertical: TextAlignVertical.center,
+      decoration: const InputDecoration(
+        labelText: "Phone Number",
+        contentPadding: EdgeInsets.zero,
+        prefixIcon: Icon(Icons.phone),
+        prefixText: "+505 ",
+        prefixStyle: TextStyle(
+          fontSize: 19,
+          fontWeight: FontWeight.bold
+        )
+      ),
       inputFormatters: [
         NicNumberFormatter()
       ],
@@ -25,9 +37,7 @@ class NicNumberFormatter extends TextInputFormatter{
     if(oldValue.text.length > newValue.text.length) return newValue;
     final regex = RegExp(r"[0-9]{4}-");
     if (regex.hasMatch(newValue.text)){
-      if(newValue.text.length > 9){
-        return oldValue;
-      }
+      if(newValue.text.length > 9) return oldValue;
       return newValue;
     }
     final regex4digit = RegExp(r"[0-9]{4}");
