@@ -19,11 +19,42 @@ class LoginScreen extends StatelessWidget {
           children:  [
             Stack(
               alignment: Alignment.center,
-              children: const[
-                BackgroundCoffeeImage("assets/images/coffee-intro2.jpg"),
+              children: [
+
+                TweenAnimationBuilder(
+                  duration: const Duration(milliseconds: 1500),
+                  tween: Tween<double>(begin: 0.0, end: 1.0),
+                  builder: (BuildContext context, value, Widget? child) {
+                    return Opacity(
+                      opacity: value,
+                      child: child,
+                    );
+                  },
+                  child: const BackgroundCoffeeImage("assets/images/coffee-intro2.jpg"),
+                ),
+
                 Positioned(
-                  child: _LoginForm()
-                )
+                  child: FutureBuilder(
+                    future: Future.delayed(const Duration(milliseconds: 1600)),
+                    initialData: null,
+                    builder: (BuildContext context, AsyncSnapshot snapshot) {
+                      if(snapshot.connectionState == ConnectionState.done ){
+                        return TweenAnimationBuilder(
+                          duration: const Duration(milliseconds: 500),
+                          tween: Tween(begin: 0.0, end: 1.0),
+                          builder: (BuildContext context,  value, Widget? child) {
+                            return Opacity(
+                              opacity: value,
+                              child: child,
+                            );
+                          },
+                          child: const _LoginForm()
+                        );
+                      }                
+                      return const SizedBox() ;
+                    },
+                  ),
+                ),     
               ],
             ),
           ],
