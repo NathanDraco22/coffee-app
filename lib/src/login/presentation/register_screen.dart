@@ -1,10 +1,10 @@
-import 'package:app_coffee/src/login/widgets/password_field.dart';
-import 'package:app_coffee/src/login/widgets/phone_number_field.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_button/loading_button.dart';
 
 import '../widgets/background_coffee_image.dart';
+import '../widgets/password_field.dart';
 import '../widgets/blur_box.dart';
+import '../widgets/phone_number_field.dart';
 import 'login_mediator.dart';
 
 class RegisterScreen extends StatelessWidget {
