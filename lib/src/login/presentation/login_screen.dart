@@ -85,7 +85,7 @@ class _LoginForm extends StatelessWidget {
                   ),
                 ),
                 const PhoneNumberField(),
-                const PasswordField(),
+                const PasswordField( labelText: "Password",),
                 LinearLoadingButton(
                   onPressed: (setLoading) async{
                     setLoading(true);

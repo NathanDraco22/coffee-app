@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 class PasswordField extends StatelessWidget {
   const PasswordField({
-    super.key,
+    super.key, this.labelText,
   });
+
+  final String? labelText; 
 
   @override
   Widget build(BuildContext context) { 
@@ -19,7 +21,7 @@ class PasswordField extends StatelessWidget {
             fontSize: 18
           ),
           decoration: InputDecoration(
-            labelText: "Password",
+            labelText: labelText,
             prefixIcon: const Icon(Icons.lock),
             suffixIcon: InkWell(
               onTap: () => setState(()=> isObscured = !isObscured),

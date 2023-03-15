@@ -1,3 +1,5 @@
+import 'package:app_coffee/src/login/widgets/password_field.dart';
+import 'package:app_coffee/src/login/widgets/phone_number_field.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_button/loading_button.dart';
 
@@ -53,9 +55,22 @@ class _RegisterForm extends StatelessWidget {
                     color: Theme.of(context).colorScheme.secondary
                   ),
                 ),
-                const TextField(),
-                const TextField(),
-                const TextField(),
+                const TextField(
+                  style: TextStyle(fontSize: 18),
+                  decoration: InputDecoration(
+                    labelText: "Full Name",
+                    prefixIcon: Icon(Icons.account_circle)
+                  ),
+                ),
+                const PhoneNumberField(),
+                const PasswordField(
+                  labelText: "Password",
+                ),
+                const PasswordField(
+                  labelText: "Confirm Password",
+                ),
+
+
                 LinearLoadingButton(
                   onPressed: (setLoading) async{
                     setLoading(true);
