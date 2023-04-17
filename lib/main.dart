@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       title:'Coffee App',
-      home: const LoginPageView()
+      home: const MenuScreen()
     );
   }
 }
