@@ -12,7 +12,7 @@ class MenuScreen extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (context, index) {
           return ExpansionTile(
-            title: const Text("Large Title"),
+            title: const Text("Large Title about a menu item"),
             tilePadding: const EdgeInsets.all(20),
             children: [
               SizedBox(

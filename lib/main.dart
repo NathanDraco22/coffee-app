@@ -1,4 +1,5 @@
 import 'package:app_coffee/src/login/presentation/login_page_view.dart';
+import 'package:app_coffee/src/login/presentation/login_screen.dart';
 import 'package:app_coffee/src/menu/presentation/menu_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       title:'Coffee App',
-      home: const MenuScreen()
+      home: const LoginPageView()
     );
   }
 }
