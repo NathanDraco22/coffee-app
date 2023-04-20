@@ -8,8 +8,8 @@ import '../widgets/phone_number_field.dart';
 import 'login_mediator.dart';
 
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +20,8 @@ class LoginScreen extends StatelessWidget {
             Stack(
               alignment: Alignment.center,
               children: [
-
-                TweenAnimationBuilder(
-                  duration: const Duration(milliseconds: 1500),
-                  tween: Tween<double>(begin: 0.0, end: 1.0),
-                  builder: (BuildContext context, value, Widget? child) {
-                    return Opacity(
-                      opacity: value,
-                      child: child,
-                    );
-                  },
-                  child: const BackgroundCoffeeImage("assets/images/coffee-intro2.jpg"),
-                ),
+                
+                const BackgroundCoffeeImage("assets/images/coffee-intro2.jpg"),
 
                 Positioned(
                   child: FutureBuilder(

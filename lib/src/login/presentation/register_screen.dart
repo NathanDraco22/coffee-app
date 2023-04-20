@@ -7,8 +7,8 @@ import '../widgets/blur_box.dart';
 import '../widgets/phone_number_field.dart';
 import 'login_mediator.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {

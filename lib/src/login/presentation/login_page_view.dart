@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 
 import 'login_mediator.dart';
 
-class LoginPageView extends StatelessWidget {
-  const LoginPageView({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     PageController pageController = PageController(viewportFraction: 0.9999);
-    const screens = [LoginScreen(), RegisterScreen()];
+    const screens = [LoginPage(), RegisterPage()];
     return LoginMediator(
       pageController: pageController,
       child: PageView.builder(
